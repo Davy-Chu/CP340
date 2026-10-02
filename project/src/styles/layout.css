@@ -1,0 +1,113 @@
+.site-header {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  height: 65px;
+  color: #f8f7f2;
+  background: #496b58;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+.wordmark,
+.footer-wordmark {
+  background: none;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -0.07em;
+}
+
+.main-nav {
+  display: flex;
+  gap: 34px;
+  margin: 0 auto;
+}
+
+.main-nav button,
+.cart-button,
+.menu-button {
+  color: inherit;
+  background: transparent;
+  font-size: 13px;
+  opacity: 0.82;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.main-nav button:hover,
+.main-nav .active,
+.cart-button:hover {
+  opacity: 1;
+}
+
+.main-nav .active {
+  position: relative;
+}
+
+.main-nav .active::after {
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  content: '';
+}
+
+.cart-button {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  color: #1d2b21;
+  background: #d4c88a;
+  font-size: 10px;
+}
+
+.menu-button {
+  display: none;
+}
+
+.site-footer {
+  padding: 28px max(36px, calc((100vw - 1148px) / 2)) 22px;
+  background: #e7e9e1;
+}
+
+.footer-wordmark {
+  display: block;
+  margin-bottom: 6px;
+  padding: 0;
+  color: #496b58;
+}
+
+.footer-brand p,
+.footer-note {
+  color: #79847b;
+  font-size: 12px;
+}
+
+.footer-brand p {
+  margin-bottom: 0;
+}
+
+.footer-note {
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid #d1d8ce;
+}

@@ -1,0 +1,287 @@
+@media (max-width: 760px) {
+  .site-header {
+    height: 58px;
+  }
+
+  .header-inner,
+  .page-width {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .wordmark {
+    font-size: 22px;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 58px;
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    gap: 18px;
+    padding: 20px;
+    background: #496b58;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+  }
+
+  .main-nav.is-open {
+    display: flex;
+  }
+
+  .main-nav .active::after {
+    display: none;
+  }
+
+  .cart-button {
+    margin-left: auto;
+  }
+
+  .menu-button {
+    display: block;
+    margin-left: 18px;
+  }
+
+  .hero-section,
+  .story-section,
+  .product-page,
+  .about-intro,
+  .about-body,
+  .featured-article {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    gap: 40px;
+    padding-top: 45px;
+  }
+
+  .hero-copy {
+    padding-left: 0;
+  }
+
+  .hero-copy h1 {
+    font-size: 54px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .hero-image-wrap {
+    height: 340px;
+  }
+
+  .hero-note {
+    top: 30px;
+    right: 25px;
+  }
+
+  .pillars-section {
+    gap: 18px;
+  }
+
+  .pillar {
+    flex-direction: column;
+    gap: 9px;
+    text-align: center;
+  }
+
+  .pillar span {
+    font-size: 10px;
+  }
+
+  .story-section {
+    gap: 35px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .story-image {
+    height: 300px;
+  }
+
+  .story-copy h2,
+  .section-heading h2 {
+    font-size: 38px;
+  }
+
+  .section-heading,
+  .shop-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 12px;
+  }
+
+  .product-image,
+  .shop-page .product-image {
+    height: 190px;
+  }
+
+  .product-image-action {
+    display: none;
+  }
+
+  .bundle-section {
+    display: block;
+    margin-bottom: 70px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .bundle-section h2 {
+    font-size: 39px;
+  }
+
+  .bundle-price {
+    width: 170px;
+    height: 170px;
+    margin: 35px auto 0;
+  }
+
+  .bundle-price strong {
+    font-size: 32px;
+  }
+
+  .shop-page,
+  .about-page,
+  .blog-page {
+    padding-top: 45px;
+    padding-bottom: 70px;
+  }
+
+  .shop-heading h1,
+  .about-intro h1,
+  .blog-heading h1 {
+    font-size: 59px;
+  }
+
+  .category-tabs {
+    padding-bottom: 14px;
+    overflow-x: auto;
+  }
+
+  .category-tabs button {
+    white-space: nowrap;
+  }
+
+  .product-page {
+    gap: 35px;
+    padding-top: 35px;
+  }
+
+  .product-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-thumbs {
+    order: 2;
+    flex-direction: row;
+    overflow: auto;
+  }
+
+  .gallery-thumbs img {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+  }
+
+  .product-main-image {
+    height: 370px;
+  }
+
+  .product-details {
+    padding-top: 0;
+  }
+
+  .about-intro > div {
+    padding-left: 0;
+  }
+
+  .about-intro img {
+    height: 330px;
+  }
+
+  .about-body {
+    gap: 35px;
+    margin-top: 70px;
+  }
+
+  .about-quote {
+    font-size: 28px;
+  }
+
+  .featured-article > img {
+    height: 250px;
+  }
+
+  .featured-article > div {
+    padding: 30px 23px;
+  }
+
+  .featured-article h2 {
+    font-size: 29px;
+  }
+
+  .article-row {
+    grid-template-columns: 68px 1fr 15px;
+    gap: 13px;
+  }
+
+  .article-placeholder {
+    height: 68px;
+  }
+
+  .article-row h3 {
+    font-size: 15px;
+  }
+
+  .site-footer {
+    padding: 24px 20px 20px;
+  }
+}
+
+@media (max-width: 440px) {
+  .hero-copy h1,
+  .shop-heading h1,
+  .about-intro h1,
+  .blog-heading h1 {
+    font-size: 46px;
+  }
+
+  .pillars-section {
+    grid-template-columns: 1fr;
+  }
+
+  .pillar {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 16px 0;
+    border-right: 0;
+    border-bottom: 1px solid #dde2d9;
+    text-align: left;
+  }
+
+  .pillar:last-child {
+    border-bottom: 0;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-image,
+  .shop-page .product-image {
+    height: 280px;
+  }
+
+  .footer-note {
+    margin-top: 14px;
+  }
+}
