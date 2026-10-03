@@ -96,6 +96,7 @@ export function HomePage({ onNavigate, onViewProduct }: HomePageProps) {
           <div>
             <p className="eyebrow">Made for your desk</p>
             <h2>Workspace essentials</h2>
+            <p className="currency-note">All prices are in CAD.</p>
           </div>
           <button
             className="text-button"

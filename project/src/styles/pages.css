@@ -163,6 +163,13 @@
   font-size: 45px;
 }
 
+.currency-note {
+  margin: 8px 0 0;
+  color: #8a938b;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
 .bundle-section {
   display: flex;
   align-items: center;
@@ -261,9 +268,13 @@
 .category-tabs {
   display: flex;
   gap: 10px;
-  margin-bottom: 34px;
+  margin-bottom: 12px;
   padding-bottom: 18px;
   border-bottom: 1px solid #dfe2db;
+}
+
+.shop-currency-note {
+  margin: 0 0 30px;
 }
 
 .category-tabs button {

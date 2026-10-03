@@ -45,6 +45,9 @@ export function ShopPage({ onViewProduct }: ShopPageProps) {
           </button>
         ))}
       </div>
+      <p className="currency-note shop-currency-note">
+        All prices are in CAD.
+      </p>
 
       <div className="product-grid">
         {filteredProducts.map((product) => (
