@@ -117,30 +117,6 @@ export function HomePage({ onNavigate, onViewProduct }: HomePageProps) {
           ))}
         </div>
       </section>
-
-      <section className="bundle-section page-width">
-        <div>
-          <p className="eyebrow">The easy place to start</p>
-          <h2>Upgrade your entire desk.</h2>
-          <p>
-            Everything you need for a more organized, comfortable setup —
-            together for less.
-          </p>
-          <button
-            className="primary-button light-button"
-            type="button"
-            onClick={() => onViewProduct(products[0])}
-          >
-            Explore the bundle <ArrowRight size={16} aria-hidden="true" />
-          </button>
-        </div>
-        <div className="bundle-price" aria-label="WorkNest Starter Bundle, $84">
-          <span>WorkNest</span>
-          <strong>Starter</strong>
-          <small>Bundle</small>
-          <b>$84</b>
-        </div>
-      </section>
     </>
   );
 }
