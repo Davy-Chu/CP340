@@ -71,7 +71,7 @@ function App() {
         {currentPage === 'product' && (
           <ProductPage product={selectedProduct} onAddToCart={addToCart} />
         )}
-        {currentPage === 'about' && <AboutPage onNavigate={navigateTo} />}
+        {currentPage === 'about' && <AboutPage />}
         {currentPage === 'blog' && <BlogPage />}
       </main>
 

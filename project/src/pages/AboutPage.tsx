@@ -1,12 +1,6 @@
-import { ArrowRight } from 'lucide-react';
 import { images } from '@/data/products';
-import type { PageId } from '@/types/catalog';
 
-interface AboutPageProps {
-  onNavigate: (page: PageId) => void;
-}
-
-export function AboutPage({ onNavigate }: AboutPageProps) {
+export function AboutPage() {
   return (
     <section className="about-page page-width">
       <div className="about-intro">
@@ -30,7 +24,11 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
 
       <div className="about-body">
         <blockquote className="about-quote">
-          “The space where we work has a major impact on how we work.”
+          <span>
+            &ldquo;We shape our buildings and afterwards our buildings shape
+            us.&rdquo;
+          </span>
+          <cite>-Winston Churchill</cite>
         </blockquote>
         <div>
           <p>
@@ -43,13 +41,6 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
             everyday problems — from tangled cables and limited desk space to
             uncomfortable laptop placement.
           </p>
-          <button
-            className="text-button"
-            type="button"
-            onClick={() => onNavigate('shop')}
-          >
-            Find your essentials <ArrowRight size={15} aria-hidden="true" />
-          </button>
         </div>
       </div>
     </section>

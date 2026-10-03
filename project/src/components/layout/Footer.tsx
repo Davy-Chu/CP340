@@ -19,7 +19,7 @@ export function Footer({ onNavigate }: FooterProps) {
         <p>Simple tools for a calmer, more productive workspace.</p>
       </div>
       <p className="footer-note">
-        © {new Date().getFullYear()} WorkNest. Made for better workdays.
+        © {new Date().getFullYear()} David Hu 169041791 huxx1791@mylaurier.ca
       </p>
     </footer>
   );

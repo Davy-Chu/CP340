@@ -2,7 +2,7 @@
   position: sticky;
   z-index: 20;
   top: 0;
-  height: 65px;
+  height: 59px;
   color: #f8f7f2;
   background: #496b58;
 }
@@ -11,9 +11,9 @@
   display: flex;
   align-items: center;
   height: 100%;
-  max-width: 1400px;
+  max-width: 1410px;
   margin: auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
 .wordmark,
@@ -53,7 +53,7 @@
 .main-nav .active::after {
   position: absolute;
   right: 0;
-  bottom: -8px;
+  bottom: -12px;
   left: 0;
   height: 1px;
   background: currentColor;
@@ -85,7 +85,7 @@
 }
 
 .site-footer {
-  padding: 28px max(36px, calc((100vw - 1148px) / 2)) 22px;
+  padding: 28px max(36px, calc((100vw - 1148px) / 2)) 16px;
   background: #e7e9e1;
 }
 
@@ -107,7 +107,7 @@
 }
 
 .footer-note {
-  margin: 16px 0 0;
-  padding-top: 14px;
+  margin: 8px 0 0;
+  padding-top: 16px;
   border-top: 1px solid #d1d8ce;
 }

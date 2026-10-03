@@ -1,6 +1,6 @@
 @media (max-width: 760px) {
   .site-header {
-    height: 58px;
+    height: 52px;
   }
 
   .header-inner,
@@ -15,7 +15,7 @@
 
   .main-nav {
     position: absolute;
-    top: 58px;
+    top: 52px;
     right: 0;
     left: 0;
     display: none;
@@ -47,8 +47,7 @@
   .story-section,
   .product-page,
   .about-intro,
-  .about-body,
-  .featured-article {
+  .about-body {
     grid-template-columns: 1fr;
   }
 
@@ -157,8 +156,7 @@
   }
 
   .shop-heading h1,
-  .about-intro h1,
-  .blog-heading h1 {
+  .about-intro h1 {
     font-size: 59px;
   }
 
@@ -217,42 +215,53 @@
     font-size: 28px;
   }
 
-  .featured-article > img {
-    height: 250px;
+  .blog-article-header {
+    margin-bottom: 34px;
   }
 
-  .featured-article > div {
-    padding: 30px 23px;
+  .blog-article-header h1 {
+    font-size: 48px;
   }
 
-  .featured-article h2 {
-    font-size: 29px;
+  .article-lead {
+    font-size: 17px;
   }
 
-  .article-row {
-    grid-template-columns: 68px 1fr 15px;
-    gap: 13px;
+  .blog-article-image {
+    height: 300px;
   }
 
-  .article-placeholder {
-    height: 68px;
+  .article-content {
+    margin-top: 44px;
   }
 
-  .article-row h3 {
-    font-size: 15px;
+  .article-content section {
+    margin-top: 40px;
+    padding-top: 34px;
+  }
+
+  .article-content h2 {
+    font-size: 27px;
   }
 
   .site-footer {
-    padding: 24px 20px 20px;
+    padding: 22px 20px 16px;
   }
 }
 
 @media (max-width: 440px) {
   .hero-copy h1,
   .shop-heading h1,
-  .about-intro h1,
-  .blog-heading h1 {
+  .about-intro h1 {
     font-size: 46px;
+  }
+
+  .blog-article-header h1 {
+    font-size: 40px;
+  }
+
+  .blog-article-image {
+    height: 230px;
   }
 
   .pillars-section {
@@ -282,6 +291,6 @@
   }
 
   .footer-note {
-    margin-top: 14px;
+    margin-top: 8px;
   }
 }
