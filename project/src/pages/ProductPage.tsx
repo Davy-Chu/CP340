@@ -10,7 +10,12 @@ interface ProductPageProps {
 
 export function ProductPage({ product, onAddToCart }: ProductPageProps) {
   const [quantity, setQuantity] = useState(1);
-  const galleryImages = [product.image, images.desk, images.organizer, images.hero];
+  const galleryImages = [
+    product.image,
+    images.desk_organizer,
+    images.cable_organizer,
+    images.laptop_stand,
+  ];
 
   return (
     <section className="product-page page-width">

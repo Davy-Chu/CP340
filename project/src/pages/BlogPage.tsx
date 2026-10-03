@@ -15,7 +15,7 @@ export function BlogPage() {
 
         <img
           className="blog-article-image"
-          src={images.journal}
+          src={images.monitor_stand}
           alt="Journal, cup of coffee, and plant on an organized desk"
         />
 

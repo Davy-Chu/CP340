@@ -35,7 +35,7 @@ export function HomePage({ onNavigate, onViewProduct }: HomePageProps) {
 
         <div className="hero-image-wrap">
           <img
-            src={images.hero}
+            src={images.laptop_stand}
             alt="Minimal desk with a laptop, plants, and warm light"
           />
           <div className="hero-note" aria-hidden="true">
@@ -68,7 +68,10 @@ export function HomePage({ onNavigate, onViewProduct }: HomePageProps) {
 
       <section className="story-section page-width">
         <div className="story-image">
-          <img src={images.desk} alt="Bright, organized workspace" />
+          <img
+            src={images.desk_organizer}
+            alt="Bright, organized workspace"
+          />
         </div>
         <div className="story-copy">
           <p className="eyebrow">The WorkNest approach</p>

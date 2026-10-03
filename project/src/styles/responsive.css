@@ -215,6 +215,23 @@
     font-size: 28px;
   }
 
+  .privacy-policy {
+    margin-top: 70px;
+    padding-top: 42px;
+  }
+
+  .privacy-policy-header {
+    margin-bottom: 36px;
+  }
+
+  .privacy-policy-header h2 {
+    font-size: 42px;
+  }
+
+  .privacy-policy-content section {
+    padding: 25px 0;
+  }
+
   .blog-article-header {
     margin-bottom: 34px;
   }

@@ -1,12 +1,13 @@
+import cableOrganizerImage from '@/assets/minimalist-cable-organizer-workspace.png';
 import type { CategoryFilter, Product } from '@/types/catalog';
 
 export const images = {
-  hero: 'https://images.pexels.com/photos/10567351/pexels-photo-10567351.jpeg?auto=compress&cs=tinysrgb&w=1400',
-  desk: 'https://images.pexels.com/photos/12278554/pexels-photo-12278554.jpeg?auto=compress&cs=tinysrgb&w=1400',
-  journal: 'https://images.pexels.com/photos/6177596/pexels-photo-6177596.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  stand: 'https://images.pexels.com/photos/8004107/pexels-photo-8004107.jpeg?auto=compress&cs=tinysrgb&w=900',
-  organizer: 'https://images.pexels.com/photos/11148009/pexels-photo-11148009.jpeg?auto=compress&cs=tinysrgb&w=900',
-  lamp: 'https://images.pexels.com/photos/30107913/pexels-photo-30107913.png?auto=compress&cs=tinysrgb&w=900',
+  planter: 'https://images.pexels.com/photos/8787632/pexels-photo-8787632.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+  desk_organizer: 'https://images.pexels.com/photos/12278554/pexels-photo-12278554.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  monitor_stand: 'https://images.pexels.com/photos/6177596/pexels-photo-6177596.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  laptop_stand: 'https://images.pexels.com/photos/968631/pexels-photo-968631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+  cable_organizer: cableOrganizerImage,
+  lamp: 'https://images.pexels.com/photos/24206110/pexels-photo-24206110.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
 } as const;
 
 export const categories: CategoryFilter[] = [
@@ -21,9 +22,9 @@ export const products: Product[] = [
   {
     id: 1,
     name: 'Lift Laptop Stand',
-    price: 59,
+    price: 23.99,
     category: 'Stands',
-    image: images.stand,
+    image: images.laptop_stand,
     description: 'Raise your screen and create a more comfortable workspace.',
     features: [
       'Ergonomic design',
@@ -35,9 +36,9 @@ export const products: Product[] = [
   {
     id: 2,
     name: 'Nest Desk Organizer',
-    price: 39,
+    price: 11.99,
     category: 'Organization',
-    image: images.organizer,
+    image: images.desk_organizer,
     description: 'A calm home for the small tools you use every day.',
     features: [
       'Solid wood construction',
@@ -49,7 +50,7 @@ export const products: Product[] = [
   {
     id: 3,
     name: 'Halo Desk Lamp',
-    price: 49,
+    price: 54.99,
     category: 'Lighting',
     image: images.lamp,
     description: 'Soft, focused light for your clearest hours.',
@@ -63,9 +64,9 @@ export const products: Product[] = [
   {
     id: 4,
     name: 'Rise Monitor Stand',
-    price: 69,
+    price: 69.99,
     category: 'Stands',
-    image: images.desk,
+    image: images.monitor_stand,
     description: 'A little more height, and a lot more breathing room.',
     features: [
       'Raises monitor to eye level',
@@ -77,9 +78,9 @@ export const products: Product[] = [
   {
     id: 5,
     name: 'CableDock Organizer',
-    price: 24,
+    price: 10.99,
     category: 'Organization',
-    image: images.organizer,
+    image: images.cable_organizer,
     description: 'Keep every cable in its place and off the floor.',
     features: [
       'Six cable channels',
@@ -91,9 +92,9 @@ export const products: Product[] = [
   {
     id: 6,
     name: 'Quiet Ceramic Planter',
-    price: 29,
+    price: 13.99,
     category: 'Decor',
-    image: images.lamp,
+    image: images.planter,
     description: 'A small touch of green to make your desk feel alive.',
     features: [
       'Hand-finished ceramic',
