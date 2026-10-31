@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Check, Minus, Plus, ShoppingCart } from 'lucide-react';
+import { ArrowLeft, Check, Minus, Plus, ShoppingCart } from 'lucide-react';
 import { images } from '@/data/products';
 import type { Product } from '@/types/catalog';
 import { MAX_CART_QUANTITY } from '@/utils/cartStorage';
@@ -7,9 +7,10 @@ import { MAX_CART_QUANTITY } from '@/utils/cartStorage';
 interface ProductPageProps {
   product: Product;
   onAddToCart: (product: Product, quantity: number) => void;
+  onBackToShop: () => void;
 }
 
-export function ProductPage({ product, onAddToCart }: ProductPageProps) {
+export function ProductPage({ product, onAddToCart, onBackToShop }: ProductPageProps) {
   const [quantity, setQuantity] = useState(1);
   const galleryImages = [
     product.image,
@@ -20,6 +21,10 @@ export function ProductPage({ product, onAddToCart }: ProductPageProps) {
 
   return (
     <section className="product-page page-width">
+      <button className="text-button product-back-button" type="button" onClick={onBackToShop}>
+        <ArrowLeft size={16} aria-hidden="true" /> Back to shop
+      </button>
+
       <div className="product-gallery">
         <div className="gallery-thumbs" aria-hidden="true">
           {galleryImages.map((image, index) => (

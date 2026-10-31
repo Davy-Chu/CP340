@@ -298,9 +298,14 @@
 .product-page {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 70px;
+  gap: 28px 70px;
   padding-top: 65px;
   padding-bottom: 125px;
+}
+
+.product-back-button {
+  grid-column: 1 / -1;
+  justify-self: start;
 }
 
 .product-gallery {

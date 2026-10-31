@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { CheckCircle } from 'lucide-react';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
@@ -26,6 +27,7 @@ function App() {
   });
   const [isCartOpen, setIsCartOpen] = useState(checkoutReturn.status === 'cancelled');
   const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const [cartNotice, setCartNotice] = useState(0);
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
   const [checkoutMessage, setCheckoutMessage] = useState<string | null>(
     checkoutReturn.status === 'cancelled' ? 'Checkout was cancelled. Your cart has been saved.' : null,
@@ -34,6 +36,12 @@ function App() {
   useEffect(() => {
     try { persistCart(window.localStorage, cartItems); } catch { /* Storage may be blocked. */ }
   }, [cartItems]);
+
+  useEffect(() => {
+    if (cartNotice === 0) return;
+    const timeout = window.setTimeout(() => setCartNotice(0), 3000);
+    return () => window.clearTimeout(timeout);
+  }, [cartNotice]);
 
   useEffect(() => {
     if (checkoutReturn.status === 'cancelled') {
@@ -80,7 +88,7 @@ function App() {
           : item,
       );
     });
-    setIsCartOpen(true);
+    setCartNotice((notice) => notice + 1);
   };
 
   const removeFromCart = (productId: number) => {
@@ -166,6 +174,7 @@ function App() {
             key={selectedProduct.id}
             product={selectedProduct}
             onAddToCart={addToCart}
+            onBackToShop={() => navigateTo('shop')}
           />
         )}
         {currentPage === 'about' && <AboutPage />}
@@ -181,6 +190,13 @@ function App() {
       </main>
 
       <Footer onNavigate={navigateTo} />
+
+      {cartNotice > 0 && (
+        <div className="cart-added-notice" key={cartNotice} role="status" aria-live="polite" aria-atomic="true">
+          <CheckCircle size={20} aria-hidden="true" />
+          <span>Item added successfully</span>
+        </div>
+      )}
 
       {isCartOpen && (
         <CartDrawer
