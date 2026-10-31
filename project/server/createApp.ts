@@ -1,5 +1,5 @@
 import express from 'express';
-import type { ErrorRequestHandler } from 'express';
+import type { ErrorRequestHandler, Express } from 'express';
 import Stripe from 'stripe';
 import { CATALOG_CURRENCY, productCatalog } from '../shared/catalog/products.js';
 import { validateCheckoutItems } from './checkoutValidation.js';
@@ -11,8 +11,7 @@ export interface CheckoutService {
   listLineItems(sessionId: string, params: { limit: number }): Promise<{ data: Stripe.LineItem[] }>;
 }
 
-export function createApp(checkout: CheckoutService, clientUrl: string) {
-  const app = express();
+export function configureApp(app: Express, checkout: CheckoutService, clientUrl: string) {
   app.disable('x-powered-by');
   app.use('/api', (_request, response, next) => {
     response.setHeader('Cache-Control', 'no-store');

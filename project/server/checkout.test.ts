@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict';
 import { once } from 'node:events';
 import { test } from 'node:test';
+import express from 'express';
 import Stripe from 'stripe';
-import { createApp } from './createApp.js';
+import { configureApp } from './createApp.js';
 import type { CheckoutService } from './createApp.js';
 import { readConfig } from './config.js';
 import { catalogProducts, CATALOG_CURRENCY, productCatalog } from '../shared/catalog/products.js';
@@ -34,7 +35,9 @@ function service(overrides: Partial<CheckoutService> = {}): CheckoutService {
 }
 
 async function withServer(checkout: CheckoutService, run: (base: string) => Promise<void>) {
-  const server = createApp(checkout, 'http://localhost:5173').listen(0, '127.0.0.1');
+  const app = express();
+  configureApp(app, checkout, 'http://localhost:5173');
+  const server = app.listen(0, '127.0.0.1');
   await once(server, 'listening');
   const address = server.address();
   assert(address && typeof address !== 'string');
