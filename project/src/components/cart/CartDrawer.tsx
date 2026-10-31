@@ -1,14 +1,22 @@
 import { useEffect } from 'react';
-import { ArrowRight, ShoppingCart, X } from 'lucide-react';
-import type { CartItem } from '@/types/catalog';
+import { ArrowRight, Minus, Plus, ShoppingCart, X } from 'lucide-react';
+import type { CartItem, Product } from '@/types/catalog';
 
 interface CartDrawerProps {
   items: CartItem[];
   onClose: () => void;
   onRemove: (productId: number) => void;
+  onUpdateQuantity: (productId: number, quantity: number) => void;
+  onViewProduct: (product: Product) => void;
 }
 
-export function CartDrawer({ items, onClose, onRemove }: CartDrawerProps) {
+export function CartDrawer({
+  items,
+  onClose,
+  onRemove,
+  onUpdateQuantity,
+  onViewProduct,
+}: CartDrawerProps) {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -24,6 +32,8 @@ export function CartDrawer({ items, onClose, onRemove }: CartDrawerProps) {
     (total, item) => total + item.product.price * item.quantity,
     0,
   );
+  const itemCount = items.reduce((total, item) => total + item.quantity, 0);
+  const formatPrice = (price: number) => `$${price.toFixed(2)}`;
 
   return (
     <div className="cart-overlay" role="presentation" onClick={onClose}>
@@ -57,23 +67,76 @@ export function CartDrawer({ items, onClose, onRemove }: CartDrawerProps) {
             <div className="cart-items">
               {items.map(({ product, quantity }) => (
                 <div className="cart-item" key={product.id}>
-                  <img src={product.image} alt="" />
-                  <div>
-                    <h3>{product.name}</h3>
-                    <p>
-                      {quantity} × ${product.price}
-                    </p>
-                    <button type="button" onClick={() => onRemove(product.id)}>
-                      Remove
+                  <button
+                    className="cart-item-image"
+                    type="button"
+                    onClick={() => onViewProduct(product)}
+                    aria-label={`View ${product.name}`}
+                  >
+                    <img src={product.image} alt="" />
+                  </button>
+
+                  <div className="cart-item-details">
+                    <button
+                      className="cart-item-link"
+                      type="button"
+                      onClick={() => onViewProduct(product)}
+                    >
+                      <h3>{product.name}</h3>
+                      <span>{product.category}</span>
                     </button>
+
+                    <div className="cart-item-price">
+                      <span>{formatPrice(product.price)} each</span>
+                      <strong>{formatPrice(product.price * quantity)}</strong>
+                    </div>
+
+                    <div className="cart-item-actions">
+                      <div
+                        className="quantity-control cart-quantity-control"
+                        aria-label={`Quantity for ${product.name}`}
+                      >
+                        <button
+                          type="button"
+                          onClick={() =>
+                            onUpdateQuantity(product.id, quantity - 1)
+                          }
+                          aria-label={`Decrease ${product.name} quantity`}
+                        >
+                          <Minus size={12} aria-hidden="true" />
+                        </button>
+                        <span aria-live="polite">{quantity}</span>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            onUpdateQuantity(product.id, quantity + 1)
+                          }
+                          aria-label={`Increase ${product.name} quantity`}
+                        >
+                          <Plus size={12} aria-hidden="true" />
+                        </button>
+                      </div>
+                      <button
+                        className="cart-remove-button"
+                        type="button"
+                        onClick={() => onRemove(product.id)}
+                      >
+                        Remove
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
 
             <div className="cart-total">
-              <span>Subtotal</span>
-              <strong>${subtotal}</strong>
+              <div>
+                <span>Subtotal</span>
+                <small>
+                  {itemCount} {itemCount === 1 ? 'item' : 'items'}
+                </small>
+              </div>
+              <strong>{formatPrice(subtotal)} CAD</strong>
             </div>
             <button className="primary-button checkout-button" type="button">
               Checkout <ArrowRight size={16} aria-hidden="true" />
