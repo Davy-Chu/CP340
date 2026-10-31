@@ -3,6 +3,7 @@ import { ArrowLeft, Check, Minus, Plus, ShoppingCart } from 'lucide-react';
 import { images } from '@/data/products';
 import type { Product } from '@/types/catalog';
 import { MAX_CART_QUANTITY } from '@/utils/cartStorage';
+import { useSeo } from '@/utils/seo';
 
 interface ProductPageProps {
   product: Product;
@@ -11,6 +12,11 @@ interface ProductPageProps {
 }
 
 export function ProductPage({ product, onAddToCart, onBackToShop }: ProductPageProps) {
+  useSeo({
+    title: `${product.name} | WorkNest`,
+    description: `Shop the ${product.name} from WorkNest. ${product.description}`,
+  });
+
   const [quantity, setQuantity] = useState(1);
   const galleryImages = [
     product.image,
@@ -32,7 +38,7 @@ export function ProductPage({ product, onAddToCart, onBackToShop }: ProductPageP
           ))}
         </div>
         <div className="product-main-image">
-          <img src={product.image} alt={product.name} />
+          <img src={product.image} alt={product.imageAlt} />
         </div>
       </div>
 

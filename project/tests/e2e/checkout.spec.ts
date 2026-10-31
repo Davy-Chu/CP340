@@ -91,7 +91,7 @@ test('success URL alone never clears cart; verified paid response clears it and 
   await expect(page.getByText('buyer@example.com', { exact: true })).toBeVisible();
   expect(await page.evaluate(() => localStorage.getItem('worknest-cart'))).toBeNull();
   await page.getByRole('button', { name: 'Continue Shopping', exact: true }).click();
-  await expect(page.getByRole('heading', { name: 'Shop', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Desk & Workspace Accessories', exact: true })).toBeVisible();
   await expect(page).not.toHaveURL(/checkout=/);
 });
 

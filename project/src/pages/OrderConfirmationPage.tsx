@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowRight, CheckCircle, LoaderCircle } from 'lucide-react';
 import type { CheckoutSession } from '@/types/checkout';
 import { isCheckoutSession, isTestSessionId } from '@/utils/checkout';
+import { useSeo } from '@/utils/seo';
 
 interface OrderConfirmationPageProps {
   sessionId: string | null;
@@ -25,6 +26,12 @@ export function OrderConfirmationPage({
   onContinueShopping,
   onOpenCart,
 }: OrderConfirmationPageProps) {
+  useSeo({
+    title: 'Order Confirmation | WorkNest',
+    description: 'Verify your WorkNest sandbox payment and view your order details.',
+    noindex: true,
+  });
+
   const [state, setState] = useState<ConfirmationState>({ status: 'loading' });
   const [attempt, setAttempt] = useState(0);
 

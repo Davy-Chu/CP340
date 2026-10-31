@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { blogPosts } from '@/data/blogPosts';
 import type { BlogPost } from '@/data/blogPosts';
+import { useSeo } from '@/utils/seo';
 
 const orderedBlogPosts = [...blogPosts].sort((firstPost, secondPost) =>
   secondPost.publishedAt.localeCompare(firstPost.publishedAt),
@@ -9,6 +10,15 @@ const orderedBlogPosts = [...blogPosts].sort((firstPost, secondPost) =>
 
 export function BlogPage() {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+
+  useSeo({
+    title: selectedPost
+      ? `${selectedPost.title} | WorkNest`
+      : 'Workspace Organization & Productivity Blog | WorkNest',
+    description: selectedPost
+      ? selectedPost.excerpt
+      : 'Read practical WorkNest guides about desk organization, workspace productivity, comfort, and creating a better home office.',
+  });
 
   const openPost = (post: BlogPost) => {
     setSelectedPost(post);
@@ -25,13 +35,13 @@ export function BlogPage() {
   }
 
   return (
-    <main className="blog-page page-width">
+    <section className="blog-page page-width">
       <header className="blog-feed-header">
         <p className="eyebrow">The WorkNest Journal</p>
         <h1>Ideas for a better workspace.</h1>
         <p>
-          Practical guidance for creating a workspace that feels organized,
-          comfortable, and ready for focused work.
+          Practical guides to desk organization, workspace productivity, and
+          home office improvements for a more comfortable place to work.
         </p>
       </header>
 
@@ -41,26 +51,26 @@ export function BlogPage() {
             className={`blog-card${index === 0 ? ' blog-card-featured' : ''}`}
             key={post.slug}
           >
-            <button type="button" onClick={() => openPost(post)}>
-              <span className="blog-card-image">
-                <img src={post.image} alt={post.imageAlt} />
+            <div className="blog-card-image">
+              <img src={post.image} alt={post.imageAlt} />
+            </div>
+            <div className="blog-card-content">
+              <div className="blog-card-meta">
+                <span className="article-tag">{post.category}</span>
+                <time dateTime={post.publishedAt}>{post.publishedLabel}</time>
+              </div>
+              <h2 className="blog-card-title">
+                <button type="button" onClick={() => openPost(post)}>{post.title}</button>
+              </h2>
+              <p className="blog-card-excerpt">{post.excerpt}</p>
+              <span className="blog-card-link" aria-hidden="true">
+                Read article <ArrowRight size={15} aria-hidden="true" />
               </span>
-              <span className="blog-card-content">
-                <span className="blog-card-meta">
-                  <span className="article-tag">{post.category}</span>
-                  <time dateTime={post.publishedAt}>{post.publishedLabel}</time>
-                </span>
-                <span className="blog-card-title">{post.title}</span>
-                <span className="blog-card-excerpt">{post.excerpt}</span>
-                <span className="blog-card-link">
-                  Read article <ArrowRight size={15} aria-hidden="true" />
-                </span>
-              </span>
-            </button>
+            </div>
           </article>
         ))}
       </section>
-    </main>
+    </section>
   );
 }
 
@@ -71,7 +81,7 @@ interface BlogArticleProps {
 
 function BlogArticle({ post, onBack }: BlogArticleProps) {
   return (
-    <main className="blog-page page-width">
+    <section className="blog-page page-width">
       <article className="blog-article">
         <button className="blog-back-button" type="button" onClick={onBack}>
           <ArrowLeft size={15} aria-hidden="true" /> Back to all articles
@@ -107,6 +117,6 @@ function BlogArticle({ post, onBack }: BlogArticleProps) {
           ))}
         </div>
       </article>
-    </main>
+    </section>
   );
 }

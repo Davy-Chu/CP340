@@ -6,7 +6,7 @@ import type { Product } from '../src/types/catalog.js';
 
 const product: Product = {
   id: 1, name: 'Lift Laptop Stand', price: 23.99, category: 'Stands',
-  image: '/stand.png', description: 'A stand', features: [],
+  image: '/stand.png', imageAlt: 'Laptop on a stand', description: 'A stand', features: [],
 };
 function storage(initial: string | null = null) {
   let value = initial;

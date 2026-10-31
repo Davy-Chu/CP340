@@ -26,7 +26,8 @@ const productDetails: Record<CatalogProduct['id'], Omit<Product, 'id' | 'name' |
   1: {
     category: 'Stands',
     image: images.laptop_stand,
-    description: 'Raise your screen and create a more comfortable workspace.',
+    imageAlt: 'Laptop raised on a black stand on a desk',
+    description: 'Raise your laptop screen with a compact laptop stand for a more comfortable, organized workspace.',
     features: [
       'Ergonomic design',
       'Sturdy and stable build',
@@ -37,7 +38,8 @@ const productDetails: Record<CatalogProduct['id'], Omit<Product, 'id' | 'name' |
   2: {
     category: 'Organization',
     image: images.desk_organizer,
-    description: 'A calm home for the small tools you use every day.',
+    imageAlt: 'Bright wooden desk with a pencil holder, white desk lamp, and notebook',
+    description: 'Keep pens, chargers, and everyday desk accessories within reach with this compact desk organizer.',
     features: [
       'Solid wood construction',
       'Modular compartments',
@@ -48,7 +50,8 @@ const productDetails: Record<CatalogProduct['id'], Omit<Product, 'id' | 'name' |
   3: {
     category: 'Lighting',
     image: images.lamp,
-    description: 'Soft, focused light for your clearest hours.',
+    imageAlt: 'Circular desk light with a black rim against a yellow background',
+    description: 'Bring adjustable desk lighting to your home office for comfortable reading, studying, and focused work.',
     features: [
       'Warm adjustable glow',
       'Compact footprint',
@@ -59,7 +62,8 @@ const productDetails: Record<CatalogProduct['id'], Omit<Product, 'id' | 'name' |
   4: {
     category: 'Stands',
     image: images.monitor_stand,
-    description: 'A little more height, and a lot more breathing room.',
+    imageAlt: 'Organized white workspace with a monitor, keyboard, pencil cup, and notebook',
+    description: 'Create extra desk storage and lift your screen with a bamboo monitor stand for better desk organization.',
     features: [
       'Raises monitor to eye level',
       'Hidden storage shelf',
@@ -70,7 +74,8 @@ const productDetails: Record<CatalogProduct['id'], Omit<Product, 'id' | 'name' |
   5: {
     category: 'Organization',
     image: images.cable_organizer,
-    description: 'Keep every cable in its place and off the floor.',
+    imageAlt: 'Black cable organizer holding charging cables beside a laptop',
+    description: 'Keep charging cables within reach with a cable organizer that helps prevent tangles and desk clutter.',
     features: [
       'Six cable channels',
       'Weighted non-slip base',
@@ -81,7 +86,8 @@ const productDetails: Record<CatalogProduct['id'], Omit<Product, 'id' | 'name' |
   6: {
     category: 'Decor',
     image: images.planter,
-    description: 'A small touch of green to make your desk feel alive.',
+    imageAlt: 'Succulent in a small white ceramic planter',
+    description: 'Add a small touch of green to your desk or home office with a neutral ceramic planter.',
     features: [
       'Hand-finished ceramic',
       'Drainage tray included',

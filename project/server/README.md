@@ -12,10 +12,12 @@ Deploy from the Git repository so the shared folder is available; uploading only
 the `server` folder omits the catalog. Prices remain defined once in the shared
 catalog and are used by both applications.
 
-`index.ts` remains the Express entry point and uses the existing `app.listen()`
-pattern supported by Vercel. No route rewrites or alternate API entry point are
-required. The checkout routes remain `/api/checkout/create-session` and
-`/api/checkout/session/:sessionId`.
+`index.ts` loads configuration, creates Stripe, and default-exports the Express
+application for Vercel without opening a port. `createApp.ts` is the application
+factory; keep its name distinct from Vercel's automatically detected `app.ts`
+entry point. `local.ts` imports the exported app and calls `app.listen()` for
+local development. The checkout routes remain `/api/checkout/create-session`
+and `/api/checkout/session/:sessionId`.
 
 ## Environment
 

@@ -5,8 +5,8 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "dev": "tsx watch index.ts",
-    "start": "tsx index.ts",
+    "dev": "tsx watch local.ts",
+    "start": "tsx local.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "tsx --test *.test.ts"
   },

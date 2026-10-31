@@ -260,6 +260,7 @@
 }
 
 .product-total {
+  flex-shrink: 0;
   padding-bottom: 10px;
   color: #7c877e;
   font-size: 12px;
@@ -704,25 +705,15 @@
 }
 
 .blog-card {
+  position: relative;
   min-width: 0;
   background: #ebece4;
-}
-
-.blog-card > button {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  background: transparent;
-  text-align: left;
 }
 
 .blog-card-featured {
   grid-column: 1 / -1;
-}
-
-.blog-card-featured > button {
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;
 }
@@ -746,7 +737,7 @@
   transition: transform 0.4s ease;
 }
 
-.blog-card > button:hover .blog-card-image img {
+.blog-card:hover .blog-card-image img {
   transform: scale(1.035);
 }
 
@@ -783,6 +774,19 @@
   margin: 20px 0 14px;
   font: 600 27px/1.12 'Playfair Display', serif;
   letter-spacing: -0.03em;
+}
+
+.blog-card-title button {
+  padding: 0;
+  background: transparent;
+  text-align: left;
+  letter-spacing: inherit;
+}
+
+.blog-card-title button::after {
+  position: absolute;
+  inset: 0;
+  content: '';
 }
 
 .blog-card-featured .blog-card-title {

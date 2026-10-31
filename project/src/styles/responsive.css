@@ -255,9 +255,6 @@
 
   .blog-card-featured {
     grid-column: auto;
-  }
-
-  .blog-card-featured > button {
     display: flex;
   }
 

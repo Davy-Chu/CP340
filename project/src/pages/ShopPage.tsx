@@ -2,12 +2,18 @@ import { useMemo, useState } from 'react';
 import { ProductCard } from '@/components/catalog/ProductCard';
 import { categories, products } from '@/data/products';
 import type { CategoryFilter, Product } from '@/types/catalog';
+import { useSeo } from '@/utils/seo';
 
 interface ShopPageProps {
   onViewProduct: (product: Product) => void;
 }
 
 export function ShopPage({ onViewProduct }: ShopPageProps) {
+  useSeo({
+    title: 'Shop Desk & Workspace Accessories | WorkNest',
+    description: 'Browse WorkNest desk accessories including laptop stands, desk organizers, lighting, cable organizers, and workspace decor.',
+  });
+
   const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('All');
 
   const filteredProducts = useMemo(
@@ -23,8 +29,11 @@ export function ShopPage({ onViewProduct }: ShopPageProps) {
       <div className="shop-heading">
         <div>
           <p className="eyebrow">The WorkNest collection</p>
-          <h1>Shop</h1>
-          <p>Workspace essentials for a calmer, more productive you.</p>
+          <h1>Desk &amp; Workspace Accessories</h1>
+          <p>
+            Explore desk accessories for an organized, productive workspace,
+            including laptop stands, desk organizers, lighting, and cable management.
+          </p>
         </div>
         <span className="product-total">
           {filteredProducts.length}{' '}

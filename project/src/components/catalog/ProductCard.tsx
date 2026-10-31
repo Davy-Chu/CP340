@@ -14,7 +14,7 @@ export function ProductCard({ product, onSelect }: ProductCardProps) {
       onClick={() => onSelect(product)}
     >
       <span className="product-image">
-        <img src={product.image} alt={product.name} />
+        <img src={product.image} alt={product.imageAlt} />
         <span className="product-image-action">
           View details <ArrowRight size={14} aria-hidden="true" />
         </span>

@@ -1,6 +1,12 @@
 import { images } from '@/data/products';
+import { useSeo } from '@/utils/seo';
 
 export function AboutPage() {
+  useSeo({
+    title: 'About WorkNest | Better Workspace Essentials',
+    description: 'Learn about WorkNest and our approach to affordable desk accessories that help create organized, comfortable, and productive workspaces.',
+  });
+
   return (
     <section className="about-page page-width">
       <div className="about-intro">
@@ -12,13 +18,13 @@ export function AboutPage() {
             WorkNest
           </h1>
           <p>
-            WorkNest creates simple, thoughtful workspace essentials for a
+            WorkNest creates simple, thoughtful desk accessories for a
             calmer, more productive everyday life.
           </p>
         </div>
         <img
           src={images.desk_organizer}
-          alt="Calm home office with plants and a wooden desk"
+          alt="Bright wooden desk with a pencil holder, white desk lamp, and notebook"
         />
       </div>
 

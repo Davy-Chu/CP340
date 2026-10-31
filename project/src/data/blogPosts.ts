@@ -31,7 +31,7 @@ export const blogPosts: BlogPost[] = [
     lead:
       'A laptop is convenient, but its compact design can make it difficult to keep both your screen and your hands in a comfortable position for long periods.',
     image: images.laptop_stand,
-    imageAlt: 'Laptop raised on a stand in a bright workspace',
+    imageAlt: 'Laptop raised on a black stand on a desk',
     introduction: [
       'Laptop stand ergonomics begin with a simple idea: your workspace should support the way your body naturally sits and moves. You do not need a large office or an expensive ergonomic setup. A few thoughtful adjustments can reduce awkward positioning and make studying, remote work, and personal projects feel easier.',
     ],
@@ -70,7 +70,7 @@ export const blogPosts: BlogPost[] = [
     lead:
       'Good cable management for a small desk is less about hiding every wire and more about giving each cable a predictable place to go.',
     image: images.cable_organizer,
-    imageAlt: 'Black cable organizer holding charging cords on a desk',
+    imageAlt: 'Black cable organizer holding charging cables beside a laptop',
     introduction: [
       'Laptop chargers, phone cables, lamp cords, and accessories can quickly take over a limited work surface. When cables fall behind the desk or cross the area where you write, even a clean setup can feel disorganized. The following process creates a practical system without permanent modifications or expensive equipment.',
     ],
@@ -109,7 +109,7 @@ export const blogPosts: BlogPost[] = [
     lead:
       'A productive workspace on a student budget starts with solving real problems, not buying every accessory shown in an ideal desk setup.',
     image: images.desk_organizer,
-    imageAlt: 'Organized wooden desk in a compact workspace',
+    imageAlt: 'Bright wooden desk with a pencil holder, white desk lamp, and notebook',
     introduction: [
       'A dorm room or bedroom desk may need to support online classes, assignments, meals, and personal projects. Limited space makes every purchase important. Before spending anything, notice what interrupts your work most often: poor lighting, a screen that feels too low, missing supplies, tangled cables, or simply too much clutter.',
     ],
@@ -148,7 +148,7 @@ export const blogPosts: BlogPost[] = [
     lead:
       'WorkNest was created with one simple idea in mind: a better workspace can make everyday work and studying easier.',
     image: images.monitor_stand,
-    imageAlt: 'Journal, cup of coffee, and plant on an organized desk',
+    imageAlt: 'Organized white workspace with a monitor, keyboard, pencil cup, and notebook',
     introduction: [
       'Many students, remote workers, and young professionals spend hours each day working at a desk. That desk might be in a bedroom, dorm room, apartment, or small home office. Even though the space may be limited, it still plays an important role in how comfortable, organized, and focused we feel while working.',
       'The purpose of WorkNest is to provide simple and affordable products that help improve everyday workspaces without making them complicated or expensive.',

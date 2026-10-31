@@ -3,6 +3,7 @@ import { ArrowRight, Leaf, Sparkles } from 'lucide-react';
 import { ProductCard } from '@/components/catalog/ProductCard';
 import { images, products } from '@/data/products';
 import type { PageId, Product } from '@/types/catalog';
+import { useSeo } from '@/utils/seo';
 
 interface HomePageProps {
   onNavigate: (page: PageId) => void;
@@ -10,6 +11,11 @@ interface HomePageProps {
 }
 
 export function HomePage({ onNavigate, onViewProduct }: HomePageProps) {
+  useSeo({
+    title: 'WorkNest | Desk & Workspace Accessories',
+    description: 'Shop affordable desk and workspace accessories from WorkNest, including laptop stands, desk organizers, lighting, and cable management.',
+  });
+
   return (
     <>
       <section className="hero-section page-width">
@@ -21,8 +27,8 @@ export function HomePage({ onNavigate, onViewProduct }: HomePageProps) {
             Workspace
           </h1>
           <p className="hero-description">
-            Simple tools for a calmer,
-            <br className="desktop-break" /> more productive you.
+            Desk and workspace accessories for a calmer,
+            <br className="desktop-break" /> more productive workspace.
           </p>
           <button
             className="primary-button"
@@ -36,7 +42,7 @@ export function HomePage({ onNavigate, onViewProduct }: HomePageProps) {
         <div className="hero-image-wrap">
           <img
             src={images.laptop_stand}
-            alt="Minimal desk with a laptop, plants, and warm light"
+            alt="Laptop raised on a black stand on a desk"
           />
           <div className="hero-note" aria-hidden="true">
             Good work
@@ -70,7 +76,7 @@ export function HomePage({ onNavigate, onViewProduct }: HomePageProps) {
         <div className="story-image">
           <img
             src={images.desk_organizer}
-            alt="Bright, organized workspace"
+            alt="Bright wooden desk with a pencil holder, white desk lamp, and notebook"
           />
         </div>
         <div className="story-copy">
@@ -78,7 +84,7 @@ export function HomePage({ onNavigate, onViewProduct }: HomePageProps) {
           <h2>Your desk should help you focus — not distract you.</h2>
           <p>
             A better workday starts with the space around you. We bring together
-            simple, affordable essentials designed to improve how your workspace
+            simple, affordable home office accessories designed to improve how your workspace
             looks, feels, and functions.
           </p>
           <button
