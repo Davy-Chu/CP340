@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Check, Minus, Plus, ShoppingCart } from 'lucide-react';
 import { images } from '@/data/products';
 import type { Product } from '@/types/catalog';
+import { MAX_CART_QUANTITY } from '@/utils/cartStorage';
 
 interface ProductPageProps {
   product: Product;
@@ -58,7 +59,8 @@ export function ProductPage({ product, onAddToCart }: ProductPageProps) {
             <span aria-live="polite">{quantity}</span>
             <button
               type="button"
-              onClick={() => setQuantity((value) => value + 1)}
+              onClick={() => setQuantity((value) => Math.min(MAX_CART_QUANTITY, value + 1))}
+              disabled={quantity >= MAX_CART_QUANTITY}
               aria-label="Increase quantity"
             >
               <Plus size={14} aria-hidden="true" />

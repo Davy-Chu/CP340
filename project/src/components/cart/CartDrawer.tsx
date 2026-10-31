@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import { ArrowRight, Minus, Plus, ShoppingCart, X } from 'lucide-react';
+import { ArrowRight, LoaderCircle, Minus, Plus, ShoppingCart, X } from 'lucide-react';
 import type { CartItem, Product } from '@/types/catalog';
+import { MAX_CART_QUANTITY } from '@/utils/cartStorage';
 
 interface CartDrawerProps {
   items: CartItem[];
@@ -8,6 +9,10 @@ interface CartDrawerProps {
   onRemove: (productId: number) => void;
   onUpdateQuantity: (productId: number, quantity: number) => void;
   onViewProduct: (product: Product) => void;
+  onCheckout: () => void;
+  isCheckingOut: boolean;
+  checkoutError: string | null;
+  checkoutMessage: string | null;
 }
 
 export function CartDrawer({
@@ -16,6 +21,10 @@ export function CartDrawer({
   onRemove,
   onUpdateQuantity,
   onViewProduct,
+  onCheckout,
+  isCheckingOut,
+  checkoutError,
+  checkoutMessage,
 }: CartDrawerProps) {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -53,6 +62,8 @@ export function CartDrawer({
             <X size={21} />
           </button>
         </div>
+
+        {checkoutMessage && <p className="checkout-message" role="status">{checkoutMessage}</p>}
 
         {items.length === 0 ? (
           <div className="empty-cart">
@@ -98,6 +109,7 @@ export function CartDrawer({
                       >
                         <button
                           type="button"
+                          disabled={isCheckingOut}
                           onClick={() =>
                             onUpdateQuantity(product.id, quantity - 1)
                           }
@@ -108,6 +120,7 @@ export function CartDrawer({
                         <span aria-live="polite">{quantity}</span>
                         <button
                           type="button"
+                          disabled={isCheckingOut || quantity >= MAX_CART_QUANTITY}
                           onClick={() =>
                             onUpdateQuantity(product.id, quantity + 1)
                           }
@@ -119,6 +132,7 @@ export function CartDrawer({
                       <button
                         className="cart-remove-button"
                         type="button"
+                        disabled={isCheckingOut}
                         onClick={() => onRemove(product.id)}
                       >
                         Remove
@@ -138,8 +152,19 @@ export function CartDrawer({
               </div>
               <strong>{formatPrice(subtotal)} CAD</strong>
             </div>
-            <button className="primary-button checkout-button" type="button">
-              Checkout <ArrowRight size={16} aria-hidden="true" />
+            <p className="checkout-sandbox-note">Stripe sandbox checkout. No real payments.</p>
+            {checkoutError && <p className="checkout-error" role="alert">{checkoutError}</p>}
+            <button
+              className="primary-button checkout-button"
+              type="button"
+              onClick={onCheckout}
+              disabled={isCheckingOut}
+              aria-busy={isCheckingOut}
+            >
+              {isCheckingOut ? 'Redirecting...' : 'Checkout'}
+              {isCheckingOut
+                ? <LoaderCircle size={16} className="checkout-spinner" aria-hidden="true" />
+                : <ArrowRight size={16} aria-hidden="true" />}
             </button>
           </>
         )}

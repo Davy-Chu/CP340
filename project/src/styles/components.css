@@ -256,6 +256,47 @@
   width: 100%;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.primary-button:disabled:hover {
+  transform: none;
+}
+
+.checkout-error,
+.checkout-message {
+  margin: 18px 0;
+  padding: 13px 15px;
+  border: 1px solid #cfd7cf;
+  border-radius: 3px;
+  color: #355541;
+  background: #e8eee5;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.checkout-error {
+  color: #873d31;
+  background: #f6eae5;
+  border-color: #e4c5bc;
+}
+
+.checkout-sandbox-note {
+  color: #68736b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.checkout-spinner {
+  animation: checkout-spin 1s linear infinite;
+}
+
+@keyframes checkout-spin {
+  to { transform: rotate(360deg); }
+}
+
 .empty-cart {
   padding-top: 100px;
   color: #68736b;

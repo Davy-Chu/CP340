@@ -1,4 +1,4 @@
-export type PageId = 'home' | 'shop' | 'product' | 'about' | 'blog';
+export type PageId = 'home' | 'shop' | 'product' | 'about' | 'blog' | 'order-confirmation';
 
 export type ProductCategory = 'Stands' | 'Lighting' | 'Organization' | 'Decor';
 export type CategoryFilter = 'All' | ProductCategory;

@@ -1,5 +1,7 @@
 import cableOrganizerImage from '@/assets/minimalist-cable-organizer-workspace.png';
 import type { CategoryFilter, Product } from '@/types/catalog';
+import { catalogProducts } from '../../shared/catalog/products.js';
+import type { CatalogProduct } from '../../shared/catalog/products.js';
 
 export const images = {
   planter: 'https://images.pexels.com/photos/8787632/pexels-photo-8787632.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -18,11 +20,10 @@ export const categories: CategoryFilter[] = [
   'Decor',
 ];
 
-export const products: Product[] = [
-  {
-    id: 1,
-    name: 'Lift Laptop Stand',
-    price: 23.99,
+// Presentation details stay in the frontend; IDs, names, and prices come from
+// the same catalog the backend uses to build Stripe Checkout line items.
+const productDetails: Record<CatalogProduct['id'], Omit<Product, 'id' | 'name' | 'price'>> = {
+  1: {
     category: 'Stands',
     image: images.laptop_stand,
     description: 'Raise your screen and create a more comfortable workspace.',
@@ -33,10 +34,7 @@ export const products: Product[] = [
       'Fits most laptops up to 16″',
     ],
   },
-  {
-    id: 2,
-    name: 'Nest Desk Organizer',
-    price: 11.99,
+  2: {
     category: 'Organization',
     image: images.desk_organizer,
     description: 'A calm home for the small tools you use every day.',
@@ -47,10 +45,7 @@ export const products: Product[] = [
       'Designed for small desks',
     ],
   },
-  {
-    id: 3,
-    name: 'Halo Desk Lamp',
-    price: 54.99,
+  3: {
     category: 'Lighting',
     image: images.lamp,
     description: 'Soft, focused light for your clearest hours.',
@@ -61,10 +56,7 @@ export const products: Product[] = [
       'Low-energy LED',
     ],
   },
-  {
-    id: 4,
-    name: 'Rise Monitor Stand',
-    price: 69.99,
+  4: {
     category: 'Stands',
     image: images.monitor_stand,
     description: 'A little more height, and a lot more breathing room.',
@@ -75,10 +67,7 @@ export const products: Product[] = [
       'Supports up to 20kg',
     ],
   },
-  {
-    id: 5,
-    name: 'CableDock Organizer',
-    price: 10.99,
+  5: {
     category: 'Organization',
     image: images.cable_organizer,
     description: 'Keep every cable in its place and off the floor.',
@@ -89,10 +78,7 @@ export const products: Product[] = [
       'Easy one-hand access',
     ],
   },
-  {
-    id: 6,
-    name: 'Quiet Ceramic Planter',
-    price: 13.99,
+  6: {
     category: 'Decor',
     image: images.planter,
     description: 'A small touch of green to make your desk feel alive.',
@@ -103,4 +89,11 @@ export const products: Product[] = [
       'Neutral matte glaze',
     ],
   },
-];
+};
+
+export const products: Product[] = catalogProducts.map(({ id, name, priceInCents }) => ({
+  ...productDetails[id],
+  id,
+  name,
+  price: priceInCents / 100,
+}));

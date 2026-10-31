@@ -1,4 +1,13 @@
 @media (max-width: 760px) {
+  .order-page {
+    padding-top: 45px;
+    padding-bottom: 70px;
+  }
+
+  .order-summary {
+    padding: 24px 18px;
+  }
+
   .site-header {
     height: 52px;
   }

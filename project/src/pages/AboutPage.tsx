@@ -52,15 +52,17 @@ export function AboutPage() {
             This policy explains what information WorkNest may collect, why it
             is used, and the choices available to you.
           </p>
-          <p className="privacy-policy-date">Last updated: October 3, 2026</p>
+          <p className="privacy-policy-date">Last updated: October 31, 2026</p>
         </header>
 
         <div className="privacy-policy-content">
           <section>
             <h3>Information We Collect</h3>
             <p>
-              WorkNest does not currently require user accounts or collect
-              payment information through this website. If you contact us
+              WorkNest does not require user accounts. Sandbox checkout is
+              handled by Stripe; we receive the payment status, purchased items,
+              totals, and customer email for order confirmation, but do not
+              receive or store card numbers. If you contact us
               directly, we may receive information you choose to provide, such
               as your name, email address, and the contents of your message.
             </p>
@@ -92,7 +94,10 @@ export function AboutPage() {
             <p>
               WorkNest does not currently use advertising cookies or analytics
               tools. The website may rely on essential browser or hosting
-              technologies needed for security and basic operation. If our use
+              technologies needed for security and basic operation. We store
+              product IDs and quantities in your browser’s local storage to
+              preserve your cart across visits and checkout redirects. Stripe
+              may use its own technologies on its hosted checkout page. If our use
               of cookies or analytics changes, this policy and any required
               consent controls will be updated.
             </p>
