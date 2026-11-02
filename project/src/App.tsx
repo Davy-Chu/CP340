@@ -6,6 +6,7 @@ import { Header } from '@/components/layout/Header';
 import { products } from '@/data/products';
 import { AboutPage } from '@/pages/AboutPage';
 import { BlogPage } from '@/pages/BlogPage';
+import { ContactPage } from '@/pages/ContactPage';
 import { HomePage } from '@/pages/HomePage';
 import { ProductPage } from '@/pages/ProductPage';
 import { ShopPage } from '@/pages/ShopPage';
@@ -179,6 +180,7 @@ function App() {
         )}
         {currentPage === 'about' && <AboutPage />}
         {currentPage === 'blog' && <BlogPage />}
+        {currentPage === 'contact' && <ContactPage />}
         {currentPage === 'order-confirmation' && (
           <OrderConfirmationPage
             sessionId={checkoutReturn.sessionId}

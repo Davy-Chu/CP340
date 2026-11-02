@@ -79,6 +79,42 @@
   font-weight: 600;
 }
 
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 15px;
+  border: 1px solid #a9bcae;
+  border-radius: 3px;
+  color: #355541;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.social-links a:hover {
+  background: #dce5d9;
+}
+
+.social-brand-logo {
+  flex-shrink: 0;
+}
+
+.social-links a:focus-visible,
+.contact-email:focus-visible {
+  outline: 3px solid #496b58;
+  outline-offset: 3px;
+}
+
 .cart-added-notice {
   position: fixed;
   z-index: 60;

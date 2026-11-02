@@ -89,6 +89,37 @@
   background: #e7e9e1;
 }
 
+.footer-main {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) auto auto;
+  align-items: start;
+  gap: 40px;
+  padding-bottom: 16px;
+}
+
+.footer-heading {
+  margin: 0 0 12px;
+  color: #355541;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.footer-contact button {
+  min-height: 44px;
+  padding: 0;
+  color: #355541;
+  background: transparent;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.footer-contact button:focus-visible {
+  outline-color: #496b58;
+}
+
 .footer-wordmark {
   display: block;
   margin-bottom: 6px;

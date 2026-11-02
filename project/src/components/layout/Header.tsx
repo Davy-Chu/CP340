@@ -14,6 +14,7 @@ const navigationItems: Array<{ label: string; page: PageId }> = [
   { label: 'Shop', page: 'shop' },
   { label: 'Blog', page: 'blog' },
   { label: 'About', page: 'about' },
+  { label: 'Contact Us', page: 'contact' },
 ];
 
 export function Header({
