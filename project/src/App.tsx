@@ -176,6 +176,7 @@ function App() {
             product={selectedProduct}
             onAddToCart={addToCart}
             onBackToShop={() => navigateTo('shop')}
+            onViewProduct={viewProduct}
           />
         )}
         {currentPage === 'about' && <AboutPage />}

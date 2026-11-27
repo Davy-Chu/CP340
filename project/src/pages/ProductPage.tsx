@@ -5,14 +5,16 @@ import type { Product } from '@/types/catalog';
 import { MAX_CART_QUANTITY } from '@/utils/cartStorage';
 import { useSeo } from '@/utils/seo';
 import { ProductReviews } from '@/components/product/ProductReviews';
+import { RelatedProducts } from '@/components/product/RelatedProducts';
 
 interface ProductPageProps {
   product: Product;
   onAddToCart: (product: Product, quantity: number) => void;
   onBackToShop: () => void;
+  onViewProduct: (product: Product) => void;
 }
 
-export function ProductPage({ product, onAddToCart, onBackToShop }: ProductPageProps) {
+export function ProductPage({ product, onAddToCart, onBackToShop, onViewProduct }: ProductPageProps) {
   useSeo({
     title: `${product.name} | WorkNest`,
     description: `Shop the ${product.name} from WorkNest. ${product.description}`,
@@ -89,6 +91,7 @@ export function ProductPage({ product, onAddToCart, onBackToShop }: ProductPageP
         </button>
         <p className="shipping-note">Free shipping on orders over $75</p>
       </div>
+      <RelatedProducts product={product} onViewProduct={onViewProduct} />
       <ProductReviews productId={product.id} />
     </section>
   );
