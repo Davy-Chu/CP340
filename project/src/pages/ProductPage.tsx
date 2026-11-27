@@ -4,6 +4,7 @@ import { images } from '@/data/products';
 import type { Product } from '@/types/catalog';
 import { MAX_CART_QUANTITY } from '@/utils/cartStorage';
 import { useSeo } from '@/utils/seo';
+import { ProductReviews } from '@/components/product/ProductReviews';
 
 interface ProductPageProps {
   product: Product;
@@ -88,6 +89,7 @@ export function ProductPage({ product, onAddToCart, onBackToShop }: ProductPageP
         </button>
         <p className="shipping-note">Free shipping on orders over $75</p>
       </div>
+      <ProductReviews productId={product.id} />
     </section>
   );
 }

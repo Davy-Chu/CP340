@@ -3,6 +3,8 @@ import type { ErrorRequestHandler, Express } from 'express';
 import Stripe from 'stripe';
 import { CATALOG_CURRENCY, productCatalog } from '../shared/catalog/products.js';
 import { validateCheckoutItems } from './checkoutValidation.js';
+import { createReviewService, type ReviewService } from './reviewService.js';
+import { reviewRoutes } from './reviewRoutes.js';
 
 // Keep the Stripe boundary small so endpoint behavior can be tested without credentials.
 export interface CheckoutService {
@@ -11,7 +13,7 @@ export interface CheckoutService {
   listLineItems(sessionId: string, params: { limit: number }): Promise<{ data: Stripe.LineItem[] }>;
 }
 
-export function configureApp(app: Express, checkout: CheckoutService, clientUrl: string) {
+export function configureApp(app: Express, checkout: CheckoutService, clientUrl: string, reviews: ReviewService = createReviewService()) {
   app.disable('x-powered-by');
   app.use('/api', (_request, response, next) => {
     response.setHeader('Cache-Control', 'no-store');
@@ -94,16 +96,18 @@ export function configureApp(app: Express, checkout: CheckoutService, clientUrl:
     }
   });
 
+  app.use('/api', reviewRoutes(reviews));
+
   app.use('/api', (_request, response) => {
     response.status(404).json({ error: 'API endpoint not found.' });
   });
 
   const handleError: ErrorRequestHandler = (error, _request, response, _next) => {
     if (error instanceof SyntaxError || error.status === 413) {
-      response.status(400).json({ error: 'Invalid checkout request.' });
+      response.status(400).json({ error: 'Invalid API request.' });
       return;
     }
-    console.error('Checkout server error:', error);
+    console.error('API server error.');
     response.status(500).json({ error: 'Something went wrong. Please try again.' });
   };
   app.use(handleError);

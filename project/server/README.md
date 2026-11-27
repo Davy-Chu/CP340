@@ -26,6 +26,8 @@ Set these variables in the Vercel backend project's environment settings:
 
 - `STRIPE_SECRET_KEY`: your Stripe sandbox `sk_test_...` secret key
 - `CLIENT_URL`: the frontend's full origin for the relevant deployment environment
+- `SUPABASE_URL`: the existing Supabase project's URL
+- `SUPABASE_SECRET_KEY`: the existing project's server-side secret key (never a frontend key)
 - `PORT`: optional; local development defaults to `4242`
 
 Do not prefix the secret key with `VITE_` or put it in frontend code. Production
@@ -35,6 +37,22 @@ For local development, copy `project/.env.example` to `project/.env` and replace
 the secret-key placeholder. The existing entry point intentionally reads this
 parent `.env` file, while deployed environment variables are used directly on
 Vercel. The real `.env` remains ignored by Git.
+
+## Product review API
+
+The existing Express app also serves `GET` and `POST /api/products/:productId/reviews`.
+`reviewRoutes.ts` validates requests and handles safe HTTP errors;
+`reviewService.ts` maps the existing `public.reviews` columns to public camel-case
+responses. `supabase.ts` lazily initializes one reusable server client, after dotenv
+has run, with session persistence, token refreshing, and URL session detection
+disabled. Review routes accept a small injected service in `configureApp()` so
+tests require no live database credentials.
+
+Use the existing reviews table and RLS configuration. Keep products in
+`shared/catalog/products.ts`. The backend secret key performs database operations;
+the browser communicates only with Express. Missing Supabase configuration logs
+a clear server diagnostic and returns a generic review 503 without blocking checkout.
+Database errors never include provider details in the HTTP response or review logs.
 
 ## Local commands
 
