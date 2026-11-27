@@ -1,0 +1,193 @@
+.commitments-page {
+  padding-top: 70px;
+  padding-bottom: 115px;
+}
+
+.commitments-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 8%;
+}
+
+.commitments-hero h1 {
+  margin-bottom: 28px;
+  font-size: clamp(44px, 5.4vw, 72px);
+}
+
+.commitments-intro {
+  max-width: 470px;
+  margin-bottom: 0;
+  color: #5d685f;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.commitments-hero-image {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  filter: saturate(0.75);
+}
+
+.commitments-section {
+  margin-top: 90px;
+  padding-top: 48px;
+  border-top: 1px solid #dde2d9;
+}
+
+.commitments-section-heading {
+  max-width: 760px;
+  margin-bottom: 32px;
+}
+
+.commitments-section-heading h2 {
+  margin-bottom: 24px;
+  font-size: clamp(32px, 4vw, 45px);
+}
+
+.commitments-section-heading > p:not(.eyebrow),
+.commitment-card p,
+.supplier-description {
+  color: #5d685f;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.commitments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.commitment-card {
+  padding: 28px;
+  border: 1px solid #dfe2db;
+  background: #ebece4;
+}
+
+.commitment-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 26px;
+  border: 1px solid #bbc9bc;
+  border-radius: 50%;
+  color: #496b58;
+}
+
+.commitment-card h3,
+.supplier-card h3 {
+  margin-bottom: 14px;
+  color: #355541;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.commitment-card p {
+  margin-bottom: 0;
+}
+
+.supplier-context {
+  max-width: 840px;
+  margin: 0 0 32px;
+  padding-left: 16px;
+  border-left: 2px solid #a9bcae;
+  color: #5d685f;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.supplier-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid #dfe2db;
+}
+
+.supplier-card > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  filter: saturate(0.7);
+}
+
+.supplier-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 26px;
+}
+
+.supplier-card h3 {
+  margin-bottom: 8px;
+  font-size: 26px;
+}
+
+.supplier-category {
+  min-height: 38px;
+  margin-bottom: 20px;
+  color: #496b58;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.supplier-link {
+  min-height: 44px;
+  margin-top: auto;
+  text-decoration: none;
+}
+
+.supplier-link:focus-visible {
+  outline: 3px solid #496b58;
+  outline-offset: 4px;
+}
+
+@media (min-width: 761px) and (max-width: 1000px) {
+  .commitments-grid {
+    gap: 16px;
+  }
+
+  .commitment-card,
+  .supplier-card-body {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 760px) {
+  .commitments-page {
+    padding-top: 45px;
+    padding-bottom: 70px;
+  }
+
+  .commitments-hero,
+  .commitments-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .commitments-hero {
+    gap: 32px;
+  }
+
+  .commitments-hero-image {
+    height: 420px;
+  }
+
+  .commitments-intro {
+    font-size: 16px;
+  }
+
+  .commitments-section {
+    margin-top: 56px;
+    padding-top: 32px;
+  }
+
+  .supplier-category {
+    min-height: 0;
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "checkedOn": "2026-11-27",
+  "businessContext": "WorkNest is a fictional business for the CP340 assignment. Current supplier relationships and operating practices are assumptions of that business scenario, not evidence of real commercial relationships or verified certifications.",
+  "license": "https://www.pexels.com/license/",
+  "usage": "Downloaded resized JPEGs for the Our Commitments page. Photos are illustrative stock imagery, not supplier product photos or endorsements. Display crops and desaturation are applied in CSS.",
+  "images": [
+    {
+      "file": "natural-workspace.jpg",
+      "photographer": "Rachel Claire",
+      "source": "https://www.pexels.com/photo/wooden-desk-and-shelves-in-room-5490294/"
+    },
+    {
+      "file": "paper-packaging.jpg",
+      "photographer": "Ron Lach",
+      "source": "https://www.pexels.com/photo/packaging-of-a-product-using-craft-paper-9594502/"
+    },
+    {
+      "file": "shipping-boxes.jpg",
+      "photographer": "Artem Podrez",
+      "source": "https://www.pexels.com/photo/brown-carton-boxes-5025500/"
+    },
+    {
+      "file": "wooden-organizer.jpg",
+      "photographer": "Muhammed Ziyad T V",
+      "source": "https://www.pexels.com/photo/elegant-wooden-desk-organizer-with-clock-31512989/"
+    }
+  ],
+  "supplierReferences": [
+    "https://www.ecoenclose.com/shop/protective-packaging-void-fill/",
+    "https://www.ecoenclose.com/shop/greenwrap/",
+    "https://www.cascades.com/en/products-services/packaging/e-commerce-packaging",
+    "https://www.rewoodhouseware.com/"
+  ]
+}

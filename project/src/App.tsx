@@ -7,6 +7,7 @@ import { products } from '@/data/products';
 import { AboutPage } from '@/pages/AboutPage';
 import { BlogPage } from '@/pages/BlogPage';
 import { ContactPage } from '@/pages/ContactPage';
+import { CommitmentsPage } from '@/pages/CommitmentsPage';
 import { HomePage } from '@/pages/HomePage';
 import { ProductPage } from '@/pages/ProductPage';
 import { ShopPage } from '@/pages/ShopPage';
@@ -180,6 +181,7 @@ function App() {
           />
         )}
         {currentPage === 'about' && <AboutPage />}
+        {currentPage === 'commitments' && <CommitmentsPage />}
         {currentPage === 'blog' && <BlogPage />}
         {currentPage === 'contact' && <ContactPage />}
         {currentPage === 'order-confirmation' && (

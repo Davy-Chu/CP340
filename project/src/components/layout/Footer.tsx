@@ -21,12 +21,15 @@ export function Footer({ onNavigate }: FooterProps) {
           <p>Simple tools for a calmer, more productive workspace.</p>
         </div>
 
-        <div className="footer-contact">
+        <nav className="footer-contact" aria-label="Footer navigation">
           <h2 className="footer-heading">Get in touch</h2>
+          <button type="button" onClick={() => onNavigate('commitments')}>
+            Our Commitments
+          </button>
           <button type="button" onClick={() => onNavigate('contact')}>
             Contact Us
           </button>
-        </div>
+        </nav>
 
         <div>
           <h2 className="footer-heading">Follow WorkNest</h2>
